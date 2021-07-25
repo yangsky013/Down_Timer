@@ -17,7 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from timer import views
 
+import timer.views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cycles/', views.cycles)
+    path('cycles/', views.cycles),
+    path('',timer.views.test )
 ]
+
+
+
+
+
