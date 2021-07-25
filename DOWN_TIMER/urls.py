@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from timer import views
 
 import timer.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',timer.views.test )
+    path('cycles/', views.cycles),
+    # path('',timer.views.test )
 ]
 
 

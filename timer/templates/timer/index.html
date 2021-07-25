@@ -5,8 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Down Timer`dddd</title>
+    <link rel="stylesheet" href=".\static\css\reset.css" />
+    <link rel="stylesheet" href=".\static\css\style.css" />
   </head>
   <body>
-    hello world!모각코 케케케
+    <section id="main_timer">
+      <div class="wrapper">
+        <div class="title">
+          <h1>타바타</h1>
+          <h2>총시간 영역</h2>
+        </div>
+        <div class="timer">
+          <div class="active">
+            <h1 id="timer_head">준비</h1>
+            <div id="timer"></div>
+          </div>
+          <div class="deactive">운동시간</div>
+        </div>
+        <div class="buttons">
+          <div>round</div>
+          <button id="start_btn" onclick="handleTimerButton()">시작</button>
+          <div>cycle</div>
+        </div>
+      </div>
+    </section>
   </body>
+  <script src="./static/js/timer.js"></script>
 </html>
