@@ -1,0 +1,122 @@
+/* header start */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.topnav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.topnav .settings-save {
+    color: #7FFF00;
+}
+
+.topnav .settings-save {
+    color: #7FFF00;
+}
+
+.topnav .settings-cancel {
+    color: #696969;
+}
+
+.header {
+    background-color: #404040;
+    color: #A9A9A9;
+    text-align: center;
+    overflow: hidden;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* header end */
+
+/* list items start */
+.select-list {
+    overflow: hidden;
+    background-color: #333;
+
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.select-list .select-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select-list .select-item .select-item-title {
+    display: flex;
+    color: white;
+    margin-bottom: 2px;
+}
+
+.select-list .select-item-text .select-item-title-icon {
+    margin-right: 0.5rem;
+
+}
+
+.select-list .select-item .select-item-description {
+    color: #696969;
+}
+
+.select-list .select-item .select-item-time-setting {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.select-list .select-item .select-item-time-setting .select-item-time-text {
+    margin-right: 1rem;
+}
+
+/* list items end */
+
+/* common start */
+.yellow {
+    color: yellow;
+}
+
+.green-yellow {
+    color: GreenYellow;
+}
+
+.red {
+    color: red;
+}
+
+.deep-sky-blue {
+    color: #00BFFF;
+}
+/* common end */
