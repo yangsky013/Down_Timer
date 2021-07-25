@@ -4,3 +4,7 @@ from django.shortcuts import render
 
 def cycles(request):
     return render(request, 'cycles.html')
+
+
+def test(request):
+  return render(request,'timer/index.html')
