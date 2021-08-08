@@ -8,3 +8,6 @@ def cycles(request):
 
 def test(request):
   return render(request,'timer/index.html')
+
+def views(request):
+  return render(request,'view.html')
