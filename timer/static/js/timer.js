@@ -3,6 +3,8 @@ const timer_head = document.getElementById("timer_head");
 const timer = document.getElementById("timer");
 
 var exerciseTime = 10;
+var round = 1;
+var cycle = 2;
 
 var min = "";
 var sec = "";
