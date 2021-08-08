@@ -149,6 +149,29 @@ body {
     margin-left: 0.5rem;
 }
 
+.exercise-history-list {
+    padding: 14px 16px;
+    font-size: 17px;
+    color: white;
+}
+
+.exercise-history-list-title {
+    margin-bottom: 1rem;
+}
+
+.exercise-history-list-title-icon {
+    margin-right: 0.5rem;
+}
+
+.exercise-history-list-detail {
+    display: flex;
+}
+
+.rows {
+    display: flex;
+    justify-content: space-between;
+}
+
 .yellow {
     color: yellow;
 }
