@@ -26,16 +26,23 @@
                 </div>
                 <div>
                     <div class="num">5</div>
-                    <div class="title"><a href="javascript:open_layer();">글 제목이 들어갑니다.</a></div>
+                    <div class="title"><a href="#" id="modal_btn">글 제목이 들어갑니다.</a></div>
                     <div class="writer">김이름</div>
                     <div class="date">2021.1.15</div>
                     <div class="count">33</div>
                 </div>
-                <div id="divpop" style="position:absolute; top:10px; left:100px; z-index:300; visibility:hidden; border:5px red;" bgcolor="#FFFFFF">
-                    <div cellpadding="5" cellspacing="0" bgcolor="#FFFFFF" border="5" bordercolor="#424242" id="divpop_p">
+
+                <div class="black_bg">
+
+                </div>
+                <div class="modal_wrap">
+                    <div class="modal_close"><a href="#">close</a>
+                    </div>
+                    <div id="divpop_p" style="width:90%; margin-left:5%; margin-top:-50px;">
                     </div>
                 </div>
-                    
+
+                
                 <div>
                     <div class="num">4</div>
                     <div class="title"><a href="view.html">글 제목이 들어갑니다.</a></div>
@@ -107,6 +114,28 @@
         }
     </script>
         
+        <script>
+            window.onload = function() {
+         
+            function onClick() {
+                document.querySelector('.modal_wrap').style.display ='block';
+                document.querySelector('.black_bg').style.display ='block';
+                $(document).ready(function(){
 
+                    $("#divpop_p").load("view.html");
+
+                });
+            }   
+            function offClick() {
+                document.querySelector('.modal_wrap').style.display ='none';
+                document.querySelector('.black_bg').style.display ='none';
+            }
+         
+            document.getElementById('modal_btn').addEventListener('click', onClick);
+            document.querySelector('.modal_close').addEventListener('click', offClick);
+         
+        };
+    </script>
+        
 </body>
 </html>
