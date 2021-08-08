@@ -1,7 +1,10 @@
-/* header start */
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.settings-main-content {
+    background-color: #333; 
 }
 
 .topnav {
@@ -59,9 +62,7 @@ body {
     text-decoration: none;
     font-size: 17px;
 }
-/* header end */
 
-/* list items start */
 .select-list {
     overflow: hidden;
     background-color: #333;
@@ -69,6 +70,7 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    padding-bottom: 0px;
 }
 
 .select-list .select-item {
@@ -79,7 +81,7 @@ body {
 .select-list .select-item .select-item-title {
     display: flex;
     color: white;
-    margin-bottom: 2px;
+    margin-bottom: 0.5rem;
 }
 
 .select-list .select-item-text .select-item-title-icon {
@@ -101,9 +103,52 @@ body {
     margin-right: 1rem;
 }
 
-/* list items end */
+.create-timer-button {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+}
 
-/* common start */
+.create-timer-button-content {
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: #909497;
+    text-decoration: none;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 100%;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.create-timer-button-content .create-timer-icon {
+    margin-right: 0.5rem;
+}
+
+.edit-exercise-history {
+    display: flex;
+    justify-content: center;
+    background-color: #404040;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 100%;
+}
+
+.edit-exercise-history-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: #808080;
+}
+
+.edit-exercise-history-button-icon {
+    margin-left: 0.5rem;
+}
+
 .yellow {
     color: yellow;
 }
@@ -119,4 +164,3 @@ body {
 .deep-sky-blue {
     color: #00BFFF;
 }
-/* common end */
