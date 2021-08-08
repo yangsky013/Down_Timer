@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Down Timer`dddd</title>
+    <title>Down Timer</title>
     <link rel="stylesheet" href="../../static/css/reset.css" />
     <link rel="stylesheet" href="../../static/css/style.css" />
+    <link rel="stylesheet" href="../../static/css/timer.css" />
   </head>
   <body>
     <section id="main_timer">
@@ -22,10 +23,18 @@
           </div>
           <div class="deactive">운동시간</div>
         </div>
-        <div class="buttons">
-          <div>round</div>
-          <button id="start_btn" onclick="handleTimerButton()">시작</button>
-          <div>cycle</div>
+        <div class="bottom_btn">
+          <div class="round">
+            <div id="round_cnt">3</div>
+            <div>round</div>
+          </div>
+          <div class="buttons">
+            <button id="start_btn" onclick="handleTimerButton()">시작</button>
+          </div>
+          <div class="cycle">
+            <div id="cycle_cnt">555</div>
+            <div>cycle</div>
+          </div>
         </div>
       </div>
     </section>

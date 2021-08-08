@@ -22,7 +22,9 @@ import timer.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cycles/', views.cycles),
+    path('settings',views.settings),
     path('cycles/view.html',views.views),
+    path('',views.test )
 ]
 
 
