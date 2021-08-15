@@ -26,7 +26,7 @@
                 </div>
                 <div>
                     <div class="num">5</div>
-                    <div class="title"><a href="#" id="modal_btn">글 제목이 들어갑니다.</a></div>
+                    <div class="title"><a href="#" id="modal_view">글 제목이 들어갑니다.</a></div>
                     <div class="writer">김이름</div>
                     <div class="date">2021.1.15</div>
                     <div class="count">33</div>
@@ -84,7 +84,7 @@
                 <a href="#" class="bt last">>></a>
             </div>
             <div class="bt_wrap">
-                <button id="">등록</button>
+                <button id=""><a href="#" id="modal_write">등록</a></button>
                 <div id="popup">
                     <div id="popmenu">
                         <p>안녕하세요!</p>
@@ -96,7 +96,7 @@
         </div>
     </div>
 
-    <script language="JavaScript">
+    <!-- <script language="JavaScript">
         function open_layer(){
         
         document.all['divpop'].style.visibility = "visible";
@@ -112,17 +112,17 @@
          document.all['divpop'].style.visibility = "hidden";
         
         }
-    </script>
+    </script> -->
         
-        <script>
-            window.onload = function() {
-         
+    <script>
+        window.onload = function() {
+        
             function onClick() {
                 document.querySelector('.modal_wrap').style.display ='block';
                 document.querySelector('.black_bg').style.display ='block';
                 $(document).ready(function(){
 
-                    $("#divpop_p").load("view.html");
+                    $("#divpop_p").load("edit.html");
 
                 });
             }   
@@ -130,10 +130,21 @@
                 document.querySelector('.modal_wrap').style.display ='none';
                 document.querySelector('.black_bg').style.display ='none';
             }
-         
-            document.getElementById('modal_btn').addEventListener('click', onClick);
+
+            function onClickwrite() {
+                document.querySelector('.modal_wrap').style.display ='block';
+                document.querySelector('.black_bg').style.display ='block';
+                $(document).ready(function(){
+
+                    $("#divpop_p").load("write.html");
+
+                });
+            }   
+
+            document.getElementById('modal_view').addEventListener('click', onClick);
             document.querySelector('.modal_close').addEventListener('click', offClick);
-         
+            document.getElementById('modal_write').addEventListener('click', onClickwrite);
+            
         };
     </script>
         

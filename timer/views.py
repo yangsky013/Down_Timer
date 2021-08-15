@@ -11,5 +11,11 @@ def test(request):
 def views(request):
   return render(request,'view.html')
 
+def write(request):
+  return render(request,'write.html')
+  
+def edit(request):
+  return render(request,'edit.html')
+
 def settings(request):
     return render(request,'timer/settings.html')
