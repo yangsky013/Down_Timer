@@ -27,12 +27,12 @@ function countReadyTimer() {
     timer.innerHTML = min + ":" + checkTime(sec);
     readyTime--;
 
-    if (readyTime < 0) {
+    if (readyTime <= 0) {
       stopTimer();
 
       isReady = false;
-      start_btn.innerText = "시작";
-      countExcerciseTimer();
+
+      startTimer();
     }
   }, 1000);
 }
@@ -52,7 +52,6 @@ function countExcerciseTimer() {
       stopTimer();
 
       isExcercise = false;
-      start_btn.innerText = "시작";
     }
   }, 1000);
 }
@@ -61,8 +60,10 @@ function countExcerciseTimer() {
 function startTimer() {
   startMode = true;
   if (isReady) {
+    console.log("isReady");
     countReadyTimer();
   } else {
+    console.log("is운동");
     countExcerciseTimer();
     // timer.innerHTML = "종료";
   }
