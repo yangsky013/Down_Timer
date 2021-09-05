@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,9 +8,14 @@
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/cycles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+
+    <link rel="stylesheet" href="../../static/css/reset.css" />
+    <link rel="stylesheet" href="../../static/css/settings.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
 </head>
-<body>
+<!-- <body>
     <div class="board_wrap">
         <div class="board_title">
             <strong>공지사항</strong>
@@ -91,28 +97,9 @@
                         <div class="exit">닫기</div>
                     </div>
                 </div>
-                <!--<a href="#">수정</a>-->
             </div>
         </div>
     </div>
-
-    <!-- <script language="JavaScript">
-        function open_layer(){
-        
-        document.all['divpop'].style.visibility = "visible";
-        $(document).ready(function(){
-
-            $("#divpop_p").load("view.html");
-
-        });
-        }
-        
-        function close_layer(){
-        
-         document.all['divpop'].style.visibility = "hidden";
-        
-        }
-    </script> -->
         
     <script>
         window.onload = function() {
@@ -149,4 +136,173 @@
     </script>
         
 </body>
+</html> -->
+
+<body>
+    <div class="black_bg">
+
+    </div>
+    <div class="modal_wrap">
+        <div class="modal_close"><a href="#">close</a>
+        </div>
+        <div id="divpop_p" style="width:100%; height:100%;">
+        </div>
+    </div>
+
+    <div class="settings-main-content" style="height:100%;">
+        <div class="topnav" id="myTopnav">
+            <a class="settings-cancel" href="#cancel">취소</a>
+            <a href="#home">타이머 목록</a>
+            <a class="settings-save" href="#save">저장</a>
+        </div>
+        <div class="header" id="header">
+            <div>타이머 명</div>
+        </div>
+        <ul class="select-list">
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+        </ul>
+
+        <div class="exercise-history-list">
+            <div class="bt_wrap">
+                <button id="write-button"><a href="#" id="modal_write">등록</a></button>
+                <div id="popup">
+                    <div id="popmenu">
+                        <p>안녕하세요!</p>
+                        <div class="exit">닫기</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function () {
+
+            function onClick() {
+                document.querySelector('.modal_wrap').style.display = 'block';
+                document.querySelector('.black_bg').style.display = 'block';
+                $(document).ready(function () {
+
+                    $("#divpop_p").load("edit.html");
+
+                });
+            }
+            function offClick() {
+                document.querySelector('.modal_wrap').style.display = 'none';
+                document.querySelector('.black_bg').style.display = 'none';
+            }
+
+            function onClickwrite() {
+                document.querySelector('.modal_wrap').style.display = 'block';
+                document.querySelector('.black_bg').style.display = 'block';
+                $(document).ready(function () {
+
+                    $("#divpop_p").load("write.html");
+
+                });
+            }
+
+            document.getElementById('modal_view').addEventListener('click', onClick);
+            document.querySelector('.modal_close').addEventListener('click', offClick);
+            document.getElementById('modal_write').addEventListener('click', onClickwrite);
+
+        };
+    </script>
+</body>
+
 </html>
