@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <title>Document</title>
     <link rel="stylesheet" href="../static/css/cycles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    
+
     <link rel="stylesheet" href="../../static/css/reset.css" />
     <link rel="stylesheet" href="../../static/css/settings.css" />
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
 </head>
 <!-- <body>
@@ -148,173 +150,159 @@
     </div>
 
     <div class="settings-main-content" style="height:100%;">
-      <div class="topnav" id="myTopnav">
-        <a class="settings-cancel" href="#cancel">취소</a>
-        <a href="#home">타이머 목록</a>
-        <a class="settings-save" href="#save">저장</a>
-      </div>
-      <div class="header" id="header">
-          <div>타이머 명</div>
-      </div>
-      <ul class="select-list">
-          <li class="select-item">
-              <div class="select-item-text">
-                  <div class="select-item-title">
-                    <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
-                  </div>
-                <div class="select-item-description">타이머 내용</div>
-              </div>
-              <div class="select-item-time-setting">
-                  <div class="select-item-time-text">
-                    <div class="date">등록일시 넣기</div>
-                  </div>
-              </div>
-          </li>
-
-          <hr>
-
-          <li class="select-item">
-              <div class="select-item-text">
-                  <div class="select-item-title">
-                    <div class="select-item-title-icon">
-                        <i class="fas fa-circle green-yellow"></i>
+        <div class="topnav" id="myTopnav">
+            <a class="settings-cancel" href="#cancel">취소</a>
+            <a href="#home">타이머 목록</a>
+            <a class="settings-save" href="#save">저장</a>
+        </div>
+        <div class="header" id="header">
+            <div>타이머 명</div>
+        </div>
+        <ul class="select-list">
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
                     </div>
-                    <div class="select-item-title-text">운동</div>
-                  </div>
-                <div class="select-item-description">오래 운동하기</div>
-              </div>
-              <div class="select-item-time-setting">
-                <div class="select-item-time-text">
-                    <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-                  </div>
-              </div>
-          </li>
-
-          <hr>
-
-          <li class="select-item">
-              <div class="select-item-text">
-                  <div class="select-item-title">
-                    <div class="select-item-title-icon">
-                        <i class="fas fa-circle red"></i>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
                     </div>
-                    <div class="select-item-title-text">휴식</div>
-                  </div>
-                <div class="select-item-description">오래 휴식하기</div>
-              </div>
-              <div class="select-item-time-setting">
-                <div class="select-item-time-text">
-                    <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-                  </div>
-              </div>
-          </li>
+                </div>
+            </li>
 
-          <hr>
+            <hr>
 
-          <li class="select-item">
-              <div class="select-item-text">
-                  <div class="select-item-title">
-                    <div class="select-item-title-icon">
-                        <i class="fas fa-circle deep-sky-blue"></i>
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
                     </div>
-                    <div class="select-item-title-text">라운드</div>
-                  </div>
-                <div class="select-item-description">1라운드는 운동 + 휴식입니다.</div>
-              </div>
-              <div class="select-item-time-setting">
-                <div class="select-item-time-text">
-                    <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-                  </div>
-              </div>
-          </li>
-
-          <hr>
-
-          <li class="select-item">
-              <div class="select-item-text">
-                  <div class="select-item-title">
-                    <div class="select-item-title-icon">
-                        <i class="fas fa-circle yellow"></i>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
                     </div>
-                    <div class="select-item-title-text">사이클</div>
-                  </div>
-                <div class="select-item-description">1사이클은 8라운드</div>
-              </div>
-              <div class="select-item-time-setting">
-                <div class="select-item-time-text">
-                    <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-                  </div>
-              </div>
-          </li>
+                </div>
+            </li>
 
-          <hr>
+            <hr>
 
-          <li class="select-item">
-              <div class="select-item-text">
-                  <div class="select-item-title">
-                    <div class="select-item-title-icon">
-                        <i class="fas fa-circle yellow"></i>
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
                     </div>
-                    <div class="select-item-title-text">사이클 사이 휴식</div>
-                  </div>
-                <div class="select-item-description">회복간격</div>
-              </div>
-              <div class="select-item-time-setting">
-                <div class="select-item-time-text">
-                    <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-                  </div>
-              </div>
-          </li>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
 
-          <hr>
-      </ul>
+            <hr>
 
-      <div class="exercise-history-list">
-        <div class="bt_wrap">
-            <button id="write-button"><a href="#" id="modal_write">등록</a></button>
-            <div id="popup">
-                <div id="popmenu">
-                    <p>안녕하세요!</p>
-                    <div class="exit">닫기</div>
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+
+            <li class="select-item">
+                <div class="select-item-text">
+                    <div class="select-item-title">
+                        <div class="select-item-title-text"><a href="#" id="modal_view">타이머 이름</a></div>
+                    </div>
+                    <div class="select-item-description">타이머 내용</div>
+                </div>
+                <div class="select-item-time-setting">
+                    <div class="select-item-time-text">
+                        <div class="date">등록일시 넣기</div>
+                    </div>
+                </div>
+            </li>
+
+            <hr>
+        </ul>
+
+        <div class="exercise-history-list">
+            <div class="bt_wrap">
+                <button id="write-button"><a href="#" id="modal_write">등록</a></button>
+                <div id="popup">
+                    <div id="popmenu">
+                        <p>안녕하세요!</p>
+                        <div class="exit">닫기</div>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
 
     </div>
 
     <script>
-        window.onload = function() {
-        
+        window.onload = function () {
+
             function onClick() {
-                document.querySelector('.modal_wrap').style.display ='block';
-                document.querySelector('.black_bg').style.display ='block';
-                $(document).ready(function(){
+                document.querySelector('.modal_wrap').style.display = 'block';
+                document.querySelector('.black_bg').style.display = 'block';
+                $(document).ready(function () {
 
                     $("#divpop_p").load("edit.html");
 
                 });
-            }   
+            }
             function offClick() {
-                document.querySelector('.modal_wrap').style.display ='none';
-                document.querySelector('.black_bg').style.display ='none';
+                document.querySelector('.modal_wrap').style.display = 'none';
+                document.querySelector('.black_bg').style.display = 'none';
             }
 
             function onClickwrite() {
-                document.querySelector('.modal_wrap').style.display ='block';
-                document.querySelector('.black_bg').style.display ='block';
-                $(document).ready(function(){
+                document.querySelector('.modal_wrap').style.display = 'block';
+                document.querySelector('.black_bg').style.display = 'block';
+                $(document).ready(function () {
 
                     $("#divpop_p").load("write.html");
 
                 });
-            }   
+            }
 
             document.getElementById('modal_view').addEventListener('click', onClick);
             document.querySelector('.modal_close').addEventListener('click', offClick);
             document.getElementById('modal_write').addEventListener('click', onClickwrite);
-            
+
         };
     </script>
 </body>
+
 </html>
