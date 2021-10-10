@@ -9,6 +9,7 @@ class Exercise(models.Model):
         abstract = True
 
 class Timer(models.Model):
+    _id = models.ObjectIdField(auto_created=True, unique=True, primary_key=True)
     timer_name = models.CharField(max_length=255)
     exercise_list = models.EmbeddedField(model_container=Exercise)
     exercise_time = models.IntegerField()
