@@ -1,8 +1,8 @@
 import os
 from pathlib import Path
 import environ
-import datetime
 from pymongo import MongoClient
+import datetime
 
 
 BASE_DIR = Path(__file__).resolve().parent
