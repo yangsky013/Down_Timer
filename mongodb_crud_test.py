@@ -27,7 +27,10 @@ timer = db['timer']
 
 timer_sample = {
     'timer_name': '테스트 타이머',
-    'exercise_list': ['푸시 업', '윗몸 일으키기'],
+    'exercise_list': [
+        {'exercise_name': '푸시 업'},
+        {'exercise_name': '윗몸 일으키기'},
+    ],
     'exercise_time': 100,
     'rest_time': 20,
     'time_between_cycle': 10,

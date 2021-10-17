@@ -1,9 +1,16 @@
 from django.shortcuts import render
+from .models import Timer
 
 # Create your views here.
 
 def cycles(request):
-    return render(request, 'cycles.html')
+    timers = Timer.objects.all()
+    for timer in timers:
+        timer.exercise_list = [exercise['exercise_name'] for exercise in timer.exercise_list]
+    context = {
+        'timers': timers,
+    }
+    return render(request, 'cycles.html', context=context)
 
 def test(request):
   return render(request,'timer/index.html')
