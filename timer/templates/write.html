@@ -54,132 +54,137 @@
 <body>
   <div class="settings-main-content" style="height:100%;">
     <div class="topnav" id="myTopnav">
-      <a class="settings-cancel" href="#cancel">취소</a>
+      <a class="settings-cancel" href="#cancel"></a>
       <a href="#home">새 타이머 등록</a>
-      <a class="settings-save" href="#save">저장</a>
+      <button class="settings-save" type="submit" style="background-color: #333;">저장</button>
     </div>
-    <div class="header" id="header">
-      <div>타이머 명</div>
-    </div>
-    <ul class="select-list">
-      <li class="select-item">
-        <div class="select-item-text">
-          <div class="select-item-title">
-            <div class="select-item-title-icon">
-              <i class="fas fa-circle yellow"></i>
+    <form method="POST" action="/post">
+      {% csrf_token %} 
+      <div class="header" id="header">
+        <div><input type="text" class="exercise_name" value="타이머 이름을 입력하세요" name="exercise_name"></div>
+      </div>
+      <ul class="select-list">
+        <li class="select-item">
+          <div class="select-item-text">
+            <div class="select-item-title">
+              <div class="select-item-title-icon">
+                <i class="fas fa-circle yellow"></i>
+              </div>
+              <div class="select-item-title-text">준비</div>
             </div>
-            <div class="select-item-title-text">준비</div>
+            <div class="select-item-description">시작하기 전 카운트다운</div>
           </div>
-          <div class="select-item-description">시작하기 전 카운트다운</div>
-        </div>
-        <div class="select-item-time-setting">
-          <div class="select-item-time-text">
-            <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0"
-              max="59" class="timer" value="00" name="prep_sec">
-          </div>
-        </div>
-      </li>
-
-      <hr>
-
-      <li class="select-item">
-        <div class="select-item-text">
-          <div class="select-item-title">
-            <div class="select-item-title-icon">
-              <i class="fas fa-circle green-yellow"></i>
+          <div class="select-item-time-setting">
+            <div class="select-item-time-text">
+              <input type="text" min="0" max="59" class="timer" value="00" name="ready_min"> : <input type="text" min="0"
+                max="59" class="timer" value="00" name="ready_sec">
             </div>
-            <div class="select-item-title-text">운동</div>
           </div>
-          <div class="select-item-description">오래 운동하기</div>
-        </div>
-        <div class="select-item-time-setting">
-          <div class="select-item-time-text">
-            <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0"
-              max="59" class="timer" value="00" name="prep_sec">
-          </div>
-        </div>
-      </li>
+        </li>
 
-      <hr>
+        <hr>
 
-      <li class="select-item">
-        <div class="select-item-text">
-          <div class="select-item-title">
-            <div class="select-item-title-icon">
-              <i class="fas fa-circle red"></i>
+        <li class="select-item">
+          <div class="select-item-text">
+            <div class="select-item-title">
+              <div class="select-item-title-icon">
+                <i class="fas fa-circle green-yellow"></i>
+              </div>
+              <div class="select-item-title-text">운동</div>
             </div>
-            <div class="select-item-title-text">휴식</div>
+            <div class="select-item-description">오래 운동하기</div>
           </div>
-          <div class="select-item-description">오래 휴식하기</div>
-        </div>
-        <div class="select-item-time-setting">
-          <div class="select-item-time-text">
-            <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0"
-              max="59" class="timer" value="00" name="prep_sec">
-          </div>
-        </div>
-      </li>
-
-      <hr>
-
-      <li class="select-item">
-        <div class="select-item-text">
-          <div class="select-item-title">
-            <div class="select-item-title-icon">
-              <i class="fas fa-circle deep-sky-blue"></i>
+          <div class="select-item-time-setting">
+            <div class="select-item-time-text">
+              <input type="text" min="0" max="59" class="timer" value="00" name="exercise_min"> : <input type="text" min="0"
+                max="59" class="timer" value="00" name="exercise_sec">
             </div>
-            <div class="select-item-title-text">라운드</div>
           </div>
-          <div class="select-item-description">1라운드는 운동 + 휴식입니다.</div>
-        </div>
-        <div class="select-item-time-setting">
-          <div class="select-item-time-text">
-            <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-          </div>
-        </div>
-      </li>
+        </li>
 
-      <hr>
+        <hr>
 
-      <li class="select-item">
-        <div class="select-item-text">
-          <div class="select-item-title">
-            <div class="select-item-title-icon">
-              <i class="fas fa-circle yellow"></i>
+        <li class="select-item">
+          <div class="select-item-text">
+            <div class="select-item-title">
+              <div class="select-item-title-icon">
+                <i class="fas fa-circle red"></i>
+              </div>
+              <div class="select-item-title-text">휴식</div>
             </div>
-            <div class="select-item-title-text">사이클</div>
+            <div class="select-item-description">오래 휴식하기</div>
           </div>
-          <div class="select-item-description">1사이클은 8라운드</div>
-        </div>
-        <div class="select-item-time-setting">
-          <div class="select-item-time-text">
-            <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec">
-          </div>
-        </div>
-      </li>
-
-      <hr>
-
-      <li class="select-item">
-        <div class="select-item-text">
-          <div class="select-item-title">
-            <div class="select-item-title-icon">
-              <i class="fas fa-circle yellow"></i>
+          <div class="select-item-time-setting">
+            <div class="select-item-time-text">
+              <input type="text" min="0" max="59" class="timer" value="00" name="rest_min"> : <input type="text" min="0"
+                max="59" class="timer" value="00" name="rest_sec">
             </div>
-            <div class="select-item-title-text">사이클 사이 휴식</div>
           </div>
-          <div class="select-item-description">회복간격</div>
-        </div>
-        <div class="select-item-time-setting">
-          <div class="select-item-time-text">
-            <input type="text" min="0" max="59" class="timer" value="00" name="prep_min"> : <input type="text" min="0"
-              max="59" class="timer" value="00" name="prep_sec">
-          </div>
-        </div>
-      </li>
+        </li>
 
-      <hr>
-    </ul>
+        <hr>
+
+        <li class="select-item">
+          <div class="select-item-text">
+            <div class="select-item-title">
+              <div class="select-item-title-icon">
+                <i class="fas fa-circle deep-sky-blue"></i>
+              </div>
+              <div class="select-item-title-text">라운드</div>
+            </div>
+            <div class="select-item-description">1라운드는 운동 + 휴식입니다.</div>
+          </div>
+          <div class="select-item-time-setting">
+            <div class="select-item-time-text">
+              <input type="text" min="0" max="99" class="timer" value="00" name="round_count">
+            </div>
+          </div>
+        </li>
+
+        <hr>
+
+        <li class="select-item">
+          <div class="select-item-text">
+            <div class="select-item-title">
+              <div class="select-item-title-icon">
+                <i class="fas fa-circle yellow"></i>
+              </div>
+              <div class="select-item-title-text">사이클</div>
+            </div>
+            <div class="select-item-description">1사이클은 8라운드</div>
+          </div>
+          <div class="select-item-time-setting">
+            <div class="select-item-time-text">
+              <input type="text" min="0" max="59" class="timer" value="00" name="cycle_count">
+            </div>
+          </div>
+        </li>
+
+        <hr>
+
+        <li class="select-item">
+          <div class="select-item-text">
+            <div class="select-item-title">
+              <div class="select-item-title-icon">
+                <i class="fas fa-circle yellow"></i>
+              </div>
+              <div class="select-item-title-text">사이클 사이 휴식</div>
+            </div>
+            <div class="select-item-description">회복간격</div>
+          </div>
+          <div class="select-item-time-setting">
+            <div class="select-item-time-text">
+              <input type="text" min="0" max="59" class="timer" value="00" name="between_cycle_min"> : <input type="text" min="0"
+                max="59" class="timer" value="00" name="between_cycle_sec">
+            </div>
+          </div>
+        </li>
+
+        <hr>
+      </ul>
+
+      <input class="settings-save" type="submit" style="background-color: #333;" value="저장">
+    </form>
 
   </div>
 </body>
