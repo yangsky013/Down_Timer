@@ -20,8 +20,6 @@ def settings(request):
 
 def post(request):
   if request.method == 'POST':
-    
-    print(request)
 
     exercise_name = request.POST['exercise_name']
     ready_min = request.POST['ready_min']
