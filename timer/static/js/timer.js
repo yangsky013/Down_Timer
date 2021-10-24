@@ -5,6 +5,7 @@ const totalTimer_head = document.getElementById("totalTime");
 const timer_head_next = document.getElementById("timer_head_next");
 const timer_next = document.getElementById("timer_next");
 const round_cnt = document.getElementById("round_cnt");
+const cycle_cnt = document.getElementById("cycle_cnt");
 
 var exerciseTime = 5;
 var readyTime = 2;
@@ -17,6 +18,7 @@ var leftRound = 0;
 var totalTime = 0;
 var defaultTotalTime = 0;
 var defualtRound = round;
+var defaultCylce = cycle;
 
 var min = "";
 var sec = "";
@@ -56,6 +58,7 @@ for (i = 0; i < cycle; i++) {
 timer.innerHTML = formatTwoDigits(readyTime);
 timer_next.innerHTML = formatTwoDigits(exerciseTime);
 round_cnt.innerHTML = round;
+cycle_cnt.innerHTML = cycle;
 timer_head_next.innerHTML = "운동";
 //전체시간 defulat
 totalTimer_head.innerHTML = formatTwoDigits(totalTime);
@@ -96,8 +99,9 @@ function startTimer() {
       console.log("ready ");
 
       var newTime = readyTime;
-
       timer_head.innerHTML = "준비";
+      timer.innerHTML = formatTwoDigits(newTime);
+
       readyInterval = setInterval(function () {
         isReady = true;
 
@@ -107,7 +111,7 @@ function startTimer() {
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
 
-        if (newTime === 0) {
+        if (newTime === 1) {
           stopTimer();
           isReady = false;
 
@@ -121,6 +125,7 @@ function startTimer() {
       console.log("운동이삼 ");
       timer_head.innerHTML = "운동";
       var newTime = exerciseTime;
+      timer.innerHTML = formatTwoDigits(newTime);
 
       ExcerciseInterval = setInterval(function () {
         isExcercise = true;
@@ -129,7 +134,7 @@ function startTimer() {
 
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
-        if (newTime === 0) {
+        if (newTime === 1) {
           stopTimer();
           isExcercise = false;
 
@@ -146,6 +151,8 @@ function startTimer() {
       var newTime = breakTime;
 
       timer_head.innerHTML = "휴식";
+      timer.innerHTML = formatTwoDigits(newTime);
+
       breakInterval = setInterval(function () {
         isBreak = true;
         newTime--;
@@ -154,7 +161,7 @@ function startTimer() {
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
 
         timer.innerHTML = formatTwoDigits(newTime);
-        if (newTime === 0) {
+        if (newTime === 1) {
           stopTimer();
           isBreak = false;
 
@@ -166,7 +173,9 @@ function startTimer() {
     } else if (isCycleBreak) {
       console.log("사이클휴식이삼 ");
       var newTime = cycleBreakTime;
+
       timer_head.innerHTML = "사이클휴식 ";
+      timer.innerHTML = formatTwoDigits(newTime);
       //사이클 휴식때는 round refresh;
       round = defualtRound;
       cycleBreakInterval = setInterval(function () {
@@ -175,15 +184,17 @@ function startTimer() {
         totalTime--;
 
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
-
         timer.innerHTML = formatTwoDigits(newTime);
-        if (newTime === 0) {
+        if (newTime === 1) {
           stopTimer();
           isCycleBreak = false;
 
           //라운드 추가
           leftRound++;
           round_cnt.innerHTML = round;
+
+          cycle--;
+          cycle_cnt.innerHTML = cycle;
           loopTimer();
         }
       }, 1000);
@@ -288,7 +299,13 @@ function refreshTimer() {
 
   //전체시간 defulat
   totalTimer_head.innerHTML = formatTwoDigits(defaultTotalTime);
+  totalTime = defaultTotalTime;
   round = defualtRound;
   round_cnt.innerHTML = round;
   leftRound = 0;
+
+  cycle = defaultCylce;
+  cycle_cnt.innerHTML = cycle;
+
+  isReady = true;
 }
