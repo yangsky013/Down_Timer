@@ -76,3 +76,12 @@
   #modal_write {
     border:none;
   }
+
+  #setting_save{
+    background-color: #333;
+    color:#fff;
+    border:none;
+    border-radius:7px;
+    text-align:center;
+
+  }

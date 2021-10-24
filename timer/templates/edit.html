@@ -16,9 +16,9 @@
 <body>
     <div class="settings-main-content" style="height:100%;">
         <div class="topnav" id="myTopnav">
-            <a class="settings-cancel" href="#cancel">취소</a>
+            <a class="settings-cancel" href="#cancel"></a>
             <a href="#home">새 타이머 등록</a>
-            <a class="settings-save" href="#save">저장</a>
+            <a class="settings-save" href="#save"></a>
         </div>
 
         <form method="POST" action="/update">
@@ -151,9 +151,21 @@
     
             <hr>
         </ul>
-    
-        <input class="settings-save" type="submit" style="background-color: #333;" name="update" value="수정">
-        <input class="settings-delete" type="submit" style="background-color: #333;" name="delete" value="삭제">
+        
+        <div style="text-align: center;">
+            <input class="settings-save" type="submit" style="background-color: #333; 
+                                                            color:#fff; 
+                                                            font-size:1em;
+                                                            margin:5px;
+                                                            padding:4px 8px;
+                                                            border-radius:3px;" name="update" value="수정"> &ensp;&ensp;&ensp;
+            <input class="settings-delete" type="submit" style="background-color: #333; 
+                                                                color:#fff; 
+                                                                font-size:1em;
+                                                                margin:5px;
+                                                                padding:4px 8px;
+                                                                border-radius:3px;" name="delete" value="삭제">
+        </div>
     </form>
 
     </div>
