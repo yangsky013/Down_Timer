@@ -4,6 +4,8 @@ const timer = document.getElementById("timer");
 const totalTimer_head = document.getElementById("totalTime");
 const timer_head_next = document.getElementById("timer_head_next");
 const timer_next = document.getElementById("timer_next");
+const round_cnt = document.getElementById("round_cnt");
+
 var exerciseTime = 5;
 var readyTime = 2;
 var breakTime = 3;
@@ -14,12 +16,12 @@ var cycleBreakTime = 4;
 var leftRound = 0;
 var totalTime = 0;
 var defaultTotalTime = 0;
+var defualtRound = round;
 
 var min = "";
 var sec = "";
 
 let startMode = false;
-let intervalTime = "";
 
 let isReady = true;
 let isExcercise = false;
@@ -27,9 +29,8 @@ let isBreak = false;
 let isCycleBreak = false;
 
 var timerQueueArray = ["r"];
-let timerType = "";
 
-let seq = "";
+//저장된 운동 리스트와 시간을 불러온다.
 
 //운동순서와 총 운동시간을 셋팅한다.
 for (i = 0; i < cycle; i++) {
@@ -54,7 +55,7 @@ for (i = 0; i < cycle; i++) {
 //준비시간 defualt fizme
 timer.innerHTML = formatTwoDigits(readyTime);
 timer_next.innerHTML = formatTwoDigits(exerciseTime);
-
+round_cnt.innerHTML = round;
 timer_head_next.innerHTML = "운동";
 //전체시간 defulat
 totalTimer_head.innerHTML = formatTwoDigits(totalTime);
@@ -99,6 +100,7 @@ function startTimer() {
       timer_head.innerHTML = "준비";
       readyInterval = setInterval(function () {
         isReady = true;
+
         newTime--;
         totalTime--;
 
@@ -111,6 +113,7 @@ function startTimer() {
 
           //라운드 추가
           leftRound++;
+
           loopTimer();
         }
       }, 1000);
@@ -132,6 +135,9 @@ function startTimer() {
 
           //라운드 추가
           leftRound++;
+          round--;
+          round_cnt.innerHTML = round;
+
           loopTimer();
         }
       }, 1000);
@@ -160,8 +166,9 @@ function startTimer() {
     } else if (isCycleBreak) {
       console.log("사이클휴식이삼 ");
       var newTime = cycleBreakTime;
-
       timer_head.innerHTML = "사이클휴식 ";
+      //사이클 휴식때는 round refresh;
+      round = defualtRound;
       cycleBreakInterval = setInterval(function () {
         isCycleBreak = true;
         newTime--;
@@ -176,6 +183,7 @@ function startTimer() {
 
           //라운드 추가
           leftRound++;
+          round_cnt.innerHTML = round;
           loopTimer();
         }
       }, 1000);
@@ -202,27 +210,35 @@ function stopTimer() {
 // //화면을 전환한다.
 // function changeScreen(v) {}
 
+function parseTime(time) {
+  var time = time.split(":");
+  var SECONDS = parseInt(time[1]);
+  var MINUTES = parseInt(time[0]);
+  return [MINUTES, SECONDS];
+}
+
 //시간을 변경한다. 1초 delay 삭제
-let changeTime = function (cur, deltaTime) {
+function changeTime(cur, deltaTime) {
   var time = parseInt(cur);
   var minutes = parseInt(time / 60);
   var seconds = parseInt(time % 60);
 
   console.log(minutes, seconds);
-  var newTime = "";
+  var newTime = 0;
 
   if (seconds === 59 && deltaTime === "+1") {
-    newTime = (formatTwoDigitsMin(minutes + 1) + ":" + "00").toString();
+    newTime = (minutes + 1) * 60;
   } else if (minutes >= 1 && seconds === 0 && deltaTime === "-1") {
-    newTime = (formatTwoDigitsMin(minutes - 1) + ":" + "59").toString();
+    newTime = (minutes - 1) * 60 + 59;
   } else if (minutes === 0 && seconds === 0 && deltaTime === "-1") {
-    newTime = (formatTwoDigitsMin(minutes) + ":" + formatTwoDigitsSec(seconds)).toString();
+    newTime = minutes * 60 + seconds;
   } else {
-    var tempTime = formatTwoDigitsSec(eval(seconds + deltaTime));
-    newTime = (formatTwoDigitsMin(minutes) + ":" + tempTime).toString();
+    var tempTime = seconds + parseInt(deltaTime);
+    newTime = minutes * 60 + tempTime;
   }
+  console.log(newTime);
   return newTime;
-};
+}
 
 function loopTimer() {
   console.log(leftRound, "leftround");
@@ -246,7 +262,6 @@ function nextRound() {
   if (leftRound < timerQueueArray.length) {
     if (timerQueueArray[leftRound + 1] === "e") {
       timer_head_next.innerHTML = "운동";
-
       timer_next.innerHTML = formatTwoDigits(exerciseTime);
     } else if (timerQueueArray[leftRound + 1] === "b") {
       timer_head_next.innerHTML = "휴식";
@@ -273,4 +288,7 @@ function refreshTimer() {
 
   //전체시간 defulat
   totalTimer_head.innerHTML = formatTwoDigits(defaultTotalTime);
+  round = defualtRound;
+  round_cnt.innerHTML = round;
+  leftRound = 0;
 }
