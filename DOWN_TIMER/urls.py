@@ -26,7 +26,9 @@ urlpatterns = [
     path('cycles/write.html', views.write),
     path('cycles/edit.html', views.edit),
     path('', views.test ),
-    path('post', views.post)
+    path('post', views.post),
+    path('update', views.update),
+    
 ]
 
 
