@@ -13,6 +13,7 @@ var cycleBreakTime = 4;
 
 var leftRound = 0;
 var totalTime = 0;
+var defaultTotalTime = 0;
 
 var min = "";
 var sec = "";
@@ -46,7 +47,7 @@ for (i = 0; i < cycle; i++) {
     timerQueueArray.push("bc");
     totalTime += cycleBreakTime;
   }
-
+  defaultTotalTime = totalTime;
   console.log(timerQueueArray);
 }
 
@@ -94,12 +95,16 @@ function startTimer() {
       console.log("ready ");
 
       var newTime = readyTime;
+
       timer_head.innerHTML = "준비";
       readyInterval = setInterval(function () {
         isReady = true;
         newTime--;
+        totalTime--;
 
+        totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
+
         if (newTime === 0) {
           stopTimer();
           isReady = false;
@@ -117,7 +122,9 @@ function startTimer() {
       ExcerciseInterval = setInterval(function () {
         isExcercise = true;
         newTime--;
+        totalTime--;
 
+        totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
         if (newTime === 0) {
           stopTimer();
@@ -136,6 +143,9 @@ function startTimer() {
       breakInterval = setInterval(function () {
         isBreak = true;
         newTime--;
+        totalTime--;
+
+        totalTimer_head.innerHTML = formatTwoDigits(totalTime);
 
         timer.innerHTML = formatTwoDigits(newTime);
         if (newTime === 0) {
@@ -150,10 +160,14 @@ function startTimer() {
     } else if (isCycleBreak) {
       console.log("사이클휴식이삼 ");
       var newTime = cycleBreakTime;
+
       timer_head.innerHTML = "사이클휴식 ";
       cycleBreakInterval = setInterval(function () {
         isCycleBreak = true;
         newTime--;
+        totalTime--;
+
+        totalTimer_head.innerHTML = formatTwoDigits(totalTime);
 
         timer.innerHTML = formatTwoDigits(newTime);
         if (newTime === 0) {
@@ -166,6 +180,8 @@ function startTimer() {
         }
       }, 1000);
     }
+  } else {
+    refreshTimer();
   }
 }
 
@@ -240,18 +256,21 @@ function nextRound() {
       timer_next.innerHTML = formatTwoDigits(cycleBreakTime);
     }
   } else {
-    timer_head_next.innerHTML = "";
-    timer_next.innerHTML = "";
+    refreshTimer();
   }
 }
-// function loopTimer() {
-//   for (let i = 0; i < timerQueueArray.length; i++) {
-//     if (timerQueueArray[i] == "준비") {
-//       readyInterval;
-//     } else if (timerQueueArray[i] == "운동") {
-//       ExcerciseInterval;
-//     } else if (timerQueueArray[i] == "휴식") {
-//       breakInterval;
-//     }
-//   }
-// }
+
+//타이머를 리프레시 한다.
+function refreshTimer() {
+  startMode = false;
+  start_btn.innerText = "시작";
+
+  //준비시간 defualt fizme
+  timer_head_next.innerHTML = "운동";
+  timer_head.innerHTML = "준비";
+  timer.innerHTML = formatTwoDigits(readyTime);
+  timer_next.innerHTML = formatTwoDigits(exerciseTime);
+
+  //전체시간 defulat
+  totalTimer_head.innerHTML = formatTwoDigits(defaultTotalTime);
+}
