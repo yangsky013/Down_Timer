@@ -26,7 +26,7 @@
             
         <div class="header" id="header">
             <!-- <div><input class="timer_name" type="text" class="exercise_name" value="{{ timer.timer_name }}" name="timer_name" disabled /></div> -->
-            <div><input class="timer_name" type="text" class="exercise_name" value="타이머명을 입력하세요." name="timer_name" /></div>
+            <div><input class="timer_name exercise_name" type="text" value="타이머명을 입력하세요." name="timer_name" /></div>
             <input class="timer_id" type="hidden" name="timer_id" value="">
             <div style="margin-bottom:5px; text-align:right;">
 
@@ -49,8 +49,8 @@
                 <div class="select-item-time-text">
                 <!-- <input type="text" min="0" max="59" class="timer" value="00" name="ready_min" disabled /> : <input type="text" min="0"
                     max="59" class="timer" value="00" name="ready_sec" disabled /> -->
-                <input class="ready_min" type="text" min="0" max="59" class="timer" value="00" name="ready_min" /> : <input class="ready_sec" type="text" min="0"
-                    max="59" class="timer" value="00" name="ready_sec" />
+                <input class="ready_min timer" type="text" min="0" max="59" value="00" name="ready_min" /> : <input class="ready_sec timer" type="text" min="0"
+                    max="59" value="00" name="ready_sec" />
                 </div>
             </div>
             </li>
@@ -71,8 +71,8 @@
                 <div class="select-item-time-text">
                 <!-- <input type="text" min="0" max="59" class="timer" value="00" name="exercise_min" disabled /> : <input type="text" min="0"
                     max="59" class="timer" value="00" name="exercise_sec" disabled /> -->
-                <input class="exercise_min" type="text" min="0" max="59" class="timer" value="00" name="exercise_min" /> : <input class="exercise_sec" type="text" min="0"
-                    max="59" class="timer" value="00" name="exercise_sec" />
+                <input class="exercise_min timer" type="text" min="0" max="59" value="00" name="exercise_min" /> : <input class="exercise_sec timer" type="text" min="0"
+                    max="59" value="00" name="exercise_sec" />
                 </div>
             </div>
             </li>
@@ -94,8 +94,8 @@
                 <!-- <input type="text" min="0" max="59" class="timer" value="00" name="rest_min" disabled /> : <input type="text" min="0"
                     max="59" class="timer" value="00" name="rest_sec" disabled /> -->
 
-                <input class="rest_min" type="text" min="0" max="59" class="timer" value="00" name="rest_min"  /> : <input class="rest_sec" type="text" min="0"
-                    max="59" class="timer" value="00" name="rest_sec" />
+                <input class="rest_min timer" type="text" min="0" max="59" value="00" name="rest_min"  /> : <input class="rest_sec timer" type="text" min="0"
+                    max="59" value="00" name="rest_sec" />
                 </div>
             </div>
             </li>
@@ -115,7 +115,7 @@
             <div class="select-item-time-setting">
                 <div class="select-item-time-text">
                 <!-- <input type="text" min="0" max="99" class="timer" value="00" name="round_count" disabled /> -->
-                <input class="round_count" type="text" min="0" max="99" class="timer" value="00" name="round_count" />
+                <input class="round_count timer" type="text" min="0" max="99" value="00" name="round_count" />
                 </div>
             </div>
             </li>
@@ -135,7 +135,7 @@
             <div class="select-item-time-setting">
                 <div class="select-item-time-text">
                 <!-- <input type="text" min="0" max="59" class="timer" value="00" name="cycle_count" disabled /> -->
-                <input class="cycle_count" type="text" min="0" max="59" class="timer" value="00" name="cycle_count" />
+                <input class="cycle_count timer" type="text" min="0" max="59" value="00" name="cycle_count" />
                 </div>
             </div>
             </li>
@@ -157,8 +157,8 @@
                 <!-- <input type="text" min="0" max="59" class="timer" value="00" name="between_cycle_min" disabled /> : <input type="text" min="0"
                     max="59" class="timer" value="00" name="between_cycle_sec" disabled /> -->
 
-                <input class="between_cycle_min" type="text" min="0" max="59" class="timer" value="00" name="between_cycle_min" /> : <input class="between_cycle_sec" type="text" min="0"
-                    max="59" class="timer" value="00" name="between_cycle_sec" />
+                <input class="between_cycle_min timer" type="text" min="0" max="59" value="00" name="between_cycle_min" /> : <input class="between_cycle_sec timer" type="text" min="0"
+                    max="59" value="00" name="between_cycle_sec" />
                 </div>
             </div>
             </li>
