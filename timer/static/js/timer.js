@@ -6,6 +6,7 @@ const timer_head_next = document.getElementById("timer_head_next");
 const timer_next = document.getElementById("timer_next");
 const round_cnt = document.getElementById("round_cnt");
 const cycle_cnt = document.getElementById("cycle_cnt");
+const refresh_button = document.getElementById("refresh_button");
 
 var exerciseTime = 5;
 var readyTime = 2;
@@ -96,7 +97,8 @@ function startTimer() {
   startMode = true;
   if (leftRound < timerQueueArray.length) {
     if (isReady) {
-      console.log("ready ");
+      timer.style.color = "black";
+      timer.classList.remove("blink");
 
       var newTime = readyTime;
       timer_head.innerHTML = "준비";
@@ -110,6 +112,7 @@ function startTimer() {
 
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
+        blinkTimer(newTime);
 
         if (newTime === 1) {
           stopTimer();
@@ -122,7 +125,8 @@ function startTimer() {
         }
       }, 1000);
     } else if (isExcercise) {
-      console.log("운동이삼 ");
+      timer.style.color = "black";
+      timer.classList.remove("blink");
       timer_head.innerHTML = "운동";
       var newTime = exerciseTime;
       timer.innerHTML = formatTwoDigits(newTime);
@@ -134,6 +138,7 @@ function startTimer() {
 
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
+        blinkTimer(newTime);
         if (newTime === 1) {
           stopTimer();
           isExcercise = false;
@@ -147,7 +152,8 @@ function startTimer() {
         }
       }, 1000);
     } else if (isBreak) {
-      console.log("휴식이삼 ");
+      timer.style.color = "black";
+      timer.classList.remove("blink");
       var newTime = breakTime;
 
       timer_head.innerHTML = "휴식";
@@ -159,8 +165,8 @@ function startTimer() {
         totalTime--;
 
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
-
         timer.innerHTML = formatTwoDigits(newTime);
+        blinkTimer(newTime);
         if (newTime === 1) {
           stopTimer();
           isBreak = false;
@@ -172,6 +178,9 @@ function startTimer() {
       }, 1000);
     } else if (isCycleBreak) {
       console.log("사이클휴식이삼 ");
+      timer.style.color = "black";
+      timer.classList.remove("blink");
+
       var newTime = cycleBreakTime;
 
       timer_head.innerHTML = "사이클휴식 ";
@@ -185,6 +194,7 @@ function startTimer() {
 
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
+        blinkTimer(newTime);
         if (newTime === 1) {
           stopTimer();
           isCycleBreak = false;
@@ -200,7 +210,7 @@ function startTimer() {
       }, 1000);
     }
   } else {
-    refreshTimer();
+    initTimer();
   }
 }
 
@@ -282,12 +292,12 @@ function nextRound() {
       timer_next.innerHTML = formatTwoDigits(cycleBreakTime);
     }
   } else {
-    refreshTimer();
+    initTimer();
   }
 }
 
 //타이머를 리프레시 한다.
-function refreshTimer() {
+function initTimer() {
   startMode = false;
   start_btn.innerText = "시작";
 
@@ -296,6 +306,9 @@ function refreshTimer() {
   timer_head.innerHTML = "준비";
   timer.innerHTML = formatTwoDigits(readyTime);
   timer_next.innerHTML = formatTwoDigits(exerciseTime);
+
+  timer.style.color = "black";
+  timer.classList.remove("blink");
 
   //전체시간 defulat
   totalTimer_head.innerHTML = formatTwoDigits(defaultTotalTime);
@@ -308,4 +321,29 @@ function refreshTimer() {
   cycle_cnt.innerHTML = cycle;
 
   isReady = true;
+}
+
+//초기화 버튼을 클릭한다.
+function clickRefreshButton() {
+  if (confirm("타이머를 초기화하시겠습니까??") == true) {
+    //확인
+
+    stopTimer();
+    initTimer();
+  } else {
+    //취소
+
+    return;
+  }
+}
+
+//글자색을 변경& 깜빡이게한다.
+function blinkTimer(x) {
+  if (x <= 3) {
+    timer.style.color = "red";
+    timer.classList.add("blink");
+  } else {
+    timer.style.color = "black";
+    timer.classList.remove("blink");
+  }
 }

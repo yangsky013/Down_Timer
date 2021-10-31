@@ -8,12 +8,18 @@
     <link rel="stylesheet" href="../../static/css/reset.css" />
     <link rel="stylesheet" href="../../static/css/style.css" />
     <link rel="stylesheet" href="../../static/css/timer.css" />
-  </head>
+    <script src="https://kit.fontawesome.com/a6b071bea7.js" crossorigin="anonymous"></script>
   <body>
     <section id="main_timer">
       <div class="wrapper">
-        <div style="width: 100%; max-width: 600px; text-align: right">
-          <a href="/cycles">목록</a>
+        <div style=" text-align: right">
+          <button >
+            <a href="/cycles"><i class="far fa-clock"></i></a>
+          </button>
+
+          <button onclick="clickRefreshButton()">
+            <i class="fas fa-sync"></i>
+          </button>
         </div>
         <div class="title">
           <h1>총시간</h1>
@@ -22,10 +28,10 @@
         <div class="timer">
           <div class="active">
             <div id="timer_head">준비</div>
-            <h1 id="timer"></h1>
+            <h1 id="timer" ></h1>
           </div>
           <div class="deactive">
-            <div id="timer_head_next">준ㅇㅇ비</div>
+            <div id="timer_head_next"></div>
             <h1 id="timer_next"></h1>
           </div>
         </div>
@@ -38,7 +44,7 @@
             <button id="start_btn" onclick="handleTimerButton()">시작</button>
           </div>
           <div class="cycle">
-            <div id="cycle_cnt">555</div>
+            <div id="cycle_cnt"></div>
             <div>cycle</div>
           </div>
         </div>
@@ -46,4 +52,5 @@
     </section>
   </body>
   <script src="./static/js/timer.js"></script>
+
 </html>
