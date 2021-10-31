@@ -27,7 +27,7 @@ def test(request):
   for i in range(int(def_time.cycle_count)):
     for j in range(int(def_time.round_count)):
       tmp += int(def_time.exercise_min) * 60 + int(def_time.exercise_sec)
-      if i < int(def_time.round_count) - 1:
+      if j < int(def_time.round_count) - 1:
         tmp += int(def_time.rest_min) * 60 + int(def_time.rest_sec)
     if i < int(def_time.cycle_count) - 1:
       tmp += int(def_time.between_cycle_min) * 60 + int(def_time.between_cycle_sec)
@@ -42,7 +42,7 @@ def test(request):
 
 def write(request):
   return render(request,'write.html')
-  
+
 def edit(request):
   return render(request,'edit.html')
 

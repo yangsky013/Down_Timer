@@ -51,6 +51,25 @@
       </div>
     </section>
   </body>
+  <script>
+
+    var ready_min = "{{def_time.ready_min}}";
+    var ready_sec =  "{{def_time.ready_sec}}";
+    var readyTime = parseInt(ready_min)*60 + parseInt(ready_sec)
+
+    var round = parseInt("{{def_time.round_count}}")
+    var cycle =  parseInt("{{def_time.cycle_count}}")
+
+    var exerciseTime = parseInt("{{def_time.exercise_min}}")*60 + parseInt("{{def_time.exercise_sec}}")
+    var breakTime =  parseInt("{{def_time.rest_min}}")*60 + parseInt("{{def_time.rest_sec}}")
+    var cycleBreakTime =parseInt("{{def_time.between_cycle_min}}")*60 + parseInt("{{def_time.between_cycle_sec}}")
+
+
+
+
+
+
+  </script>
   <script src="./static/js/timer.js"></script>
 
 </html>
