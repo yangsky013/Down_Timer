@@ -78,7 +78,7 @@
             <a class="settings-save" href="#save">저장</a>
         </div>
         <div class="header" id="header">
-            <div>타이머 명</div>
+            <div class="timer-name">타이머 명</div>
             <div style="margin-bottom:5px; text-align:right;">
                 수정 확인 &ensp;
                 <input type="checkbox" id="is_edit" name="is_edit" value="0" onclick="showHidden()"></dd>
@@ -97,8 +97,8 @@
                 </div>
                 <div class="select-item-time-setting">
                     <div class="select-item-time-text">
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
+                        <input class="ready_min" type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
+                        <input class="ready_sec" type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
                     </div>
                 </div>
             </li>
@@ -117,8 +117,8 @@
                 </div>
                 <div class="select-item-time-setting">
                     <div class="select-item-time-text">
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
+                        <input class="exercise_min" type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
+                        <input class="exercise_sec" type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
                     </div>
                 </div>
             </li>
@@ -137,8 +137,8 @@
                 </div>
                 <div class="select-item-time-setting">
                     <div class="select-item-time-text">
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
+                        <input class="rest_min" type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
+                        <input class="rest_sec" type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
                     </div>
                 </div>
             </li>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="select-item-time-setting">
                     <div class="select-item-time-text">
-                        <input type="text" min="0" max="59" class="timer" value="1" name="prep_sec" disabled />
+                        <input class="round_count" type="text" min="0" max="59" class="timer" value="1" name="prep_sec" disabled />
                     </div>
                 </div>
             </li>
@@ -176,7 +176,7 @@
                 </div>
                 <div class="select-item-time-setting">
                     <div class="select-item-time-text">
-                        <input type="text" min="0" max="59" class="timer" value="1" name="prep_sec" disabled />
+                        <input class="cycle_count" type="text" min="0" max="59" class="timer" value="1" name="prep_sec" disabled />
                     </div>
                 </div>
             </li>
@@ -195,8 +195,8 @@
                 </div>
                 <div class="select-item-time-setting">
                     <div class="select-item-time-text">
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
-                        <input type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
+                        <input class="between_cycle_min" type="text" min="0" max="59" class="timer" value="00" name="prep_min" disabled /> :
+                        <input class="between_cycle_sec" type="text" min="0" max="59" class="timer" value="00" name="prep_sec" disabled />
                     </div>
                 </div>
             </li>

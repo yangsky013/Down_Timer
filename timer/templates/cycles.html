@@ -16,6 +16,8 @@
 
 </head>
 <body>
+    {% load timer_template_filter %}
+
     <div class="black_bg">
 
     </div>
@@ -38,9 +40,11 @@
         <ul class="select-list">
             {% for timer in timers %}
                 <li class="select-item">
+                    <!-- <p>{{timer | private:'_id'}}</p> -->
                     <div class="select-item-text">
                         <div class="select-item-title">
-                            <div class="select-item-title-text"><a href="#" id="modal_view">{{timer.timer_name}}</a></div>
+                            <div class="select-item-title-text"><a href="#" class="modal_view" id="{{timer | private:'_id'}}" data-value={{timer }}>{{timer.timer_name}}</a></div>
+                            <!-- <div class="select-item-title-text"><a href="#" id="modal_view">{{timer.timer_name}}</a></div> -->
                         </div>
                         <div class="select-item-description">운동 목록: {{timer.exercise_list}}</div>
                     </div>
@@ -150,17 +154,40 @@
     </div>
 
     <script>
+        var timerList = "{{timers_js | escapejs }}";
+        timerList = JSON.parse(timerList);
+        // console.log('timers', timerList);
+
         window.onload = function () {
 
-            function onClick() {
+            function loadPopup(data) {
                 document.querySelector('.modal_wrap').style.display = 'block';
                 document.querySelector('.black_bg').style.display = 'block';
                 $(document).ready(function () {
-
-                    $("#divpop_p").load("edit.html");
-
+                    $("#divpop_p").load("edit.html", function() {
+                        // console.log('data', data);
+                        $(".timer-name").text(data['timer_name']);
+                        $(".ready_min").val(data['ready_min']);
+                        $(".ready_sec").val(data['ready_sec']);
+                        $(".exercise_min").val(data['exercise_min']);
+                        $(".exercise_sec").val(data['exercise_sec']);
+                        $(".rest_min").val(data['rest_min']);
+                        $(".rest_sec").val(data['rest_sec']);
+                        $(".round_count").val(data['round_count']);
+                        $(".cycle_count").val(data['cycle_count']);
+                        $(".between_cycle_min").val(data['between_cycle_min']);
+                        $(".between_cycle_sec").val(data['between_cycle_sec']);
+                    });
                 });
             }
+
+            // function onClick() {
+            //     document.querySelector('.modal_wrap').style.display = 'block';
+            //     document.querySelector('.black_bg').style.display = 'block';
+            //     $(document).ready(function () {
+            //         $("#divpop_p").load("edit.html");
+            //     });
+            // }
             function offClick() {
                 document.querySelector('.modal_wrap').style.display = 'none';
                 document.querySelector('.black_bg').style.display = 'none';
@@ -176,7 +203,20 @@
                 });
             }
 
-            document.getElementById('modal_view').addEventListener('click', onClick);
+            // document.getElementById('modal_view').addEventListener('click', onClick);
+            // document.getElementsByClassName('modal_view').addEventListener('click', onClick);
+            // document.querySelectorAll('.modal_view').addEventListener('click', function(event) {
+            //     console.log('event', event.srcElement.id);
+            // });
+            var timeTableRows = document.querySelectorAll('.modal_view');
+            for (var i = 0; i < timeTableRows.length; i++) {
+                timeTableRows[i].addEventListener('click', function(event) {
+                    var rowId = event.srcElement.id;
+                    var targetData = timerList.find(x => x._id === rowId);
+                    // console.log(targetData);
+                    loadPopup(targetData);
+                });
+            }
             document.querySelector('.modal_close').addEventListener('click', offClick);
             document.getElementById('modal_write').addEventListener('click', onClickwrite);
 
