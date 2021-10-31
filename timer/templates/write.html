@@ -56,7 +56,7 @@
     <div class="topnav" id="myTopnav">
       <a class="settings-cancel" href="#cancel"></a>
       <a href="#home">새 타이머 등록</a>
-      <button class="settings-save" type="submit" style="background-color: #333;">저장</button>
+      <a class="settings-cancel" href="#cancel"></a>
     </div>
     <form method="POST" action="/post">
       {% csrf_token %} 
@@ -183,7 +183,14 @@
         <hr>
       </ul>
 
-      <input class="settings-save" type="submit" style="background-color: #333;" value="저장">
+      <div style="text-align: center;">
+        <input class="settings-save" type="submit" style="background-color: #333; 
+                                                          color:#fff; 
+                                                          font-size:1em;
+                                                          margin:5px;
+                                                          padding:4px 8px;
+                                                          border-radius:3px;" name="save" value="저장">
+      </div>
     </form>
 
   </div>
