@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Timer
+import json
+from bson.json_util import loads, dumps
 
 # Create your views here.
 
@@ -7,8 +9,11 @@ def cycles(request):
     timers = Timer.objects.all()
     # for timer in timers:
     #     timer.exercise_list = [exercise['exercise_name'] for exercise in timer.exercise_list]
+    # print([timer for timer in Timer.objects.values])
+    timers_js = json.dumps([timer for timer in Timer.objects.values()], default=str)
     context = {
         'timers': timers,
+        'timers_js': timers_js,
     }
     return render(request, 'cycles.html', context=context)
 
