@@ -17,28 +17,28 @@
         </div>
         <div class="title">
           <h1>총시간</h1>
-          <h2 id="totalTime">총시간 영역</h2>
+          <h2 id="totalTime">{{def_time.total_min}}:{{def_time.total_sec}}</h2>
         </div>
         <div class="timer">
           <div class="active">
             <div id="timer_head">준비</div>
-            <h1 id="timer"></h1>
+            <h1 id="timer">{{def_time.ready_min}}:{{def_time.ready_sec}}</h1>
           </div>
           <div class="deactive">
-            <div id="timer_head_next">준ㅇㅇ비</div>
-            <h1 id="timer_next"></h1>
+            <div id="timer_head_next">운동</div>
+            <h1 id="timer_next">{{def_time.exercise_min}}:{{def_time.exercise_sec}}</h1>
           </div>
         </div>
         <div class="bottom_btn">
           <div class="round">
-            <div id="round_cnt"></div>
+            <div id="round_cnt">{{def_time.round_count}}</div>
             <div>round</div>
           </div>
           <div class="buttons">
             <button id="start_btn" onclick="handleTimerButton()">시작</button>
           </div>
           <div class="cycle">
-            <div id="cycle_cnt">555</div>
+            <div id="cycle_cnt">{{def_time.cycle_count}}</div>
             <div>cycle</div>
           </div>
         </div>
