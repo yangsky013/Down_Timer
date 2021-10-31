@@ -8,12 +8,12 @@ const round_cnt = document.getElementById("round_cnt");
 const cycle_cnt = document.getElementById("cycle_cnt");
 const refresh_button = document.getElementById("refresh_button");
 
-var exerciseTime = 5;
-var readyTime = 2;
-var breakTime = 3;
-var round = 2;
-var cycle = 2;
-var cycleBreakTime = 4;
+// var exerciseTime = 5;
+// var readyTime = 2;
+// var breakTime = 3;
+// var round = 2;
+// var cycle = 2;
+// var cycleBreakTime = 4;
 
 var leftRound = 0;
 var totalTime = 0;
@@ -36,6 +36,7 @@ var timerQueueArray = ["r"];
 //저장된 운동 리스트와 시간을 불러온다.
 
 //운동순서와 총 운동시간을 셋팅한다.
+totalTime += readyTime;
 for (i = 0; i < cycle; i++) {
   for (j = 0; j < round; j++) {
     timerQueueArray.push("e");
@@ -43,7 +44,7 @@ for (i = 0; i < cycle; i++) {
     //마지막 라운드에는 휴식시간이 없음.
     if (j < round - 1) {
       timerQueueArray.push("b");
-      totalTime += readyTime;
+      totalTime += breakTime;
     }
   }
   //마지막 사이클에는 휴식시간이 없음.
