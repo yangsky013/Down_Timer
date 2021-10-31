@@ -19,7 +19,26 @@ def cycles(request):
     return render(request, 'cycles.html', context=context)
 
 def test(request):
-  return render(request,'timer/index.html')
+  timers = Timer.objects.all()
+  # for timer in timers:
+  #     timer.exercise_list = [exercise['exercise_name'] for exercise in timer.exercise_list]
+  def_time = timers[(len(timers)-1)]
+  tmp = int(def_time.ready_min) * 60 + int(def_time.ready_sec)
+  for i in range(int(def_time.cycle_count)):
+    for j in range(int(def_time.round_count)):
+      tmp += int(def_time.exercise_min) * 60 + int(def_time.exercise_sec)
+      if i < int(def_time.round_count) - 1:
+        tmp += int(def_time.rest_min) * 60 + int(def_time.rest_sec)
+    if i < int(def_time.cycle_count) - 1:
+      tmp += int(def_time.between_cycle_min) * 60 + int(def_time.between_cycle_sec)
+  def_time.total_min = tmp // 60
+  def_time.total_sec = tmp % 60
+
+  context = {
+      'timers': timers,
+      'def_time' : def_time,
+  }
+  return render(request,'timer/index.html', context=context)
 
 def write(request):
   return render(request,'write.html')
