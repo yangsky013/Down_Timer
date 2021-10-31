@@ -74,6 +74,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries':{
+                'timer_template_filter': 'timer.templates.timer_template_filter',
+            }
         },
     },
 ]
