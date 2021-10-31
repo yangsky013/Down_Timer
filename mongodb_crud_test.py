@@ -26,19 +26,19 @@ db = client['down-timer']
 timer = db['timer']
 
 timer_sample = {
-    'timer_name': '테스트 타이머',
-    'exercise_list': [
-        {'exercise_name': '푸시 업'},
-        {'exercise_name': '윗몸 일으키기'},
-    ],
-    'exercise_time': 100,
-    'rest_time': 20,
-    'time_between_cycle': 10,
-    'ready_time': 10,
-    'cycle_count': 3,
-    'round_count': 5,
-    'created_at': datetime.datetime.now(),
-    'updated_at': datetime.datetime.now(),
+    'timer_name': '테스트 타이머2',
+    "ready_min" : "03",
+    "ready_sec" : "05",
+    "exercise_min" : "02",
+    "exercise_sec" : "10",
+    "rest_min" : "02",
+    "rest_sec" : "25",
+    "round_count" : "01",
+    "cycle_count" : "01",
+    "between_cycle_min" : "01",
+    "between_cycle_sec" : "30",
+    "created_at": datetime.datetime.now(),
+    "updated_at": datetime.datetime.now(),
 }
 timer.insert_one(timer_sample)
 print('test complete')

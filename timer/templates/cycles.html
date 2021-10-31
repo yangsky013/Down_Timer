@@ -165,8 +165,10 @@
                 document.querySelector('.black_bg').style.display = 'block';
                 $(document).ready(function () {
                     $("#divpop_p").load("edit.html", function() {
-                        // console.log('data', data);
-                        $(".timer-name").text(data['timer_name']);
+                        console.log('data', data);
+                        console.log('data', data['_id']);
+                        $(".timer_id").val(data['_id']);
+                        $(".timer_name").val(data['timer_name']);
                         $(".ready_min").val(data['ready_min']);
                         $(".ready_sec").val(data['ready_sec']);
                         $(".exercise_min").val(data['exercise_min']);

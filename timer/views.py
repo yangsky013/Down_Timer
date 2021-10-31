@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Timer
 import json
 from bson.json_util import loads, dumps
+from bson import ObjectId
 
 # Create your views here.
 
@@ -94,6 +95,8 @@ def post(request):
 def update(request):
   if request.method == 'POST' and 'update' in request.POST:
 
+    timer_id = request.POST['timer_id']
+    print('timer_id', timer_id)
     timer_name = request.POST['timer_name']
     ready_min = request.POST['ready_min']
     ready_sec = request.POST['ready_sec']
@@ -149,9 +152,12 @@ def update(request):
     db = client['down-timer']
     timer = db['timer']
 
-    timer.find_one({'timer_name': timer_name,})
-    timer.update_one({'timer_name': timer_name,},
-    { "$set" : TimerData})
+    # timer.find_one({'timer_name': timer_name,})
+    # timer.update_one({'timer_name': timer_name,},
+    # { "$set" : TimerData})
+
+    timer.find_one({'_id': ObjectId(timer_id)})
+    timer.update_one({'_id': ObjectId(timer_id)}, { "$set" : TimerData})
 
     return redirect('cycles/')
 
