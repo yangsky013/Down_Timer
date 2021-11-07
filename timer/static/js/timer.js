@@ -115,7 +115,7 @@ function startTimer() {
         timer.innerHTML = formatTwoDigits(newTime);
         blinkTimer(newTime);
 
-        if (newTime === 1) {
+        if (newTime < 1) {
           stopTimer();
           isReady = false;
 
@@ -140,7 +140,7 @@ function startTimer() {
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
         blinkTimer(newTime);
-        if (newTime === 1) {
+        if (newTime < 1) {
           stopTimer();
           isExcercise = false;
 
@@ -168,7 +168,7 @@ function startTimer() {
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
         blinkTimer(newTime);
-        if (newTime === 1) {
+        if (newTime < 1) {
           stopTimer();
           isBreak = false;
 
@@ -196,7 +196,7 @@ function startTimer() {
         totalTimer_head.innerHTML = formatTwoDigits(totalTime);
         timer.innerHTML = formatTwoDigits(newTime);
         blinkTimer(newTime);
-        if (newTime === 1) {
+        if (newTime < 1) {
           stopTimer();
           isCycleBreak = false;
 
