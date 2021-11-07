@@ -25,7 +25,11 @@ def test(request):
   timers = Timer.objects.all()
   # for timer in timers:
   #     timer.exercise_list = [exercise['exercise_name'] for exercise in timer.exercise_list]
-  def_time = timers[(len(timers)-1)]
+  
+  for timer in timers:
+    if timer.is_active == 'true':
+      def_time = timer
+
   tmp = int(def_time.ready_min) * 60 + int(def_time.ready_sec)
   for i in range(int(def_time.cycle_count)):
     for j in range(int(def_time.round_count)):
@@ -79,6 +83,7 @@ def post(request):
       'cycle_count' : cycle_count,
       'between_cycle_min' : between_cycle_min,
       'between_cycle_sec' : between_cycle_sec,
+      'is_active' : 'false'
     }
     import os
     from pathlib import Path
