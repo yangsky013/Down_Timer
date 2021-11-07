@@ -36,6 +36,7 @@ class Timer(models.Model):
     between_cycle_sec = models.IntegerField()
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField()
+    is_active = models.CharField(max_length=10)
 
     class Meta:
         db_table = 'timer'

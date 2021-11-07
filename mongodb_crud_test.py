@@ -39,6 +39,7 @@ timer_sample = {
     "between_cycle_sec" : "30",
     "created_at": datetime.datetime.now(),
     "updated_at": datetime.datetime.now(),
+    "is_active": 'false',
 }
 timer.insert_one(timer_sample)
 print('test complete')

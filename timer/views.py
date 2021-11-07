@@ -8,9 +8,12 @@ from bson import ObjectId
 
 def cycles(request):
     timers = Timer.objects.all()
-    # for timer in timers:
-    #     timer.exercise_list = [exercise['exercise_name'] for exercise in timer.exercise_list]
-    # print([timer for timer in Timer.objects.values])
+    total_timer_count = len(timers)
+    inactive_timer_count = len([timer.is_active for timer in timers if timer.is_active == 'false'])
+    if total_timer_count - inactive_timer_count  != 1:
+        for timer in timers:
+            timer.is_active = 'false'
+        timers[0].is_active = 'true'
     timers_js = json.dumps([timer for timer in Timer.objects.values()], default=str)
     context = {
         'timers': timers,
@@ -220,3 +223,39 @@ def update(request):
     timer.delete_one({'timer_name': timer_name,})
 
     return redirect('cycles/')
+
+  
+def select(request):
+  if request.method == 'POST' and 'select' in request.POST:
+    timer_id = request.POST['timer_id']
+    print('timer_id', timer_id)
+
+    import os
+    from pathlib import Path
+    import environ
+    from pymongo import MongoClient
+
+    BASE_DIR = Path(__file__).resolve().parent
+    env = environ.Env(
+        # set casting, default value
+        DEBUG=(bool, False)
+    )
+    environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+    host = env('DB_HOST')
+    port = int(env('DB_PORT'))
+    username = env('DB_USERNAME')
+    password = env('DB_PASSWORD')
+
+    client = MongoClient(host=host,
+                        port=int(port),
+                        username=username,
+                        password=password
+                        )
+    db = client['down-timer']
+    timer = db['timer']
+
+    print(timer.find_one({'_id': ObjectId(timer_id)}))
+    timer.update_many({}, {"$set": {'is_active': "false"}})
+    timer.update_one({'_id': ObjectId(timer_id)}, { "$set" : {'is_active': "true"}})
+    return redirect('/')

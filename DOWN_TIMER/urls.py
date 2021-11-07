@@ -28,7 +28,7 @@ urlpatterns = [
     path('', views.test ),
     path('post', views.post),
     path('update', views.update),
-    
+    path('select', views.select),
 ]
 
 

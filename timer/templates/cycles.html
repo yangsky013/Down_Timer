@@ -43,14 +43,35 @@
                     <!-- <p>{{timer | private:'_id'}}</p> -->
                     <div class="select-item-text">
                         <div class="select-item-title">
-                            <div class="select-item-title-text"><a href="#" class="modal_view" id="{{timer | private:'_id'}}" data-value={{timer }}>{{timer.timer_name}}</a></div>
+                            <div class="select-item-title-text"><a href="#" class="modal_view" id="{{timer | private:'_id'}}" data-value={{timer}}>{{timer.timer_name}}</a></div>
                             <!-- <div class="select-item-title-text"><a href="#" id="modal_view">{{timer.timer_name}}</a></div> -->
                         </div>
-                        <div class="select-item-description">운동 목록: {{timer.exercise_list}}</div>
+                        <!-- <div class="select-item-description">운동 목록: {{timer.exercise_list}}</div> -->
                     </div>
                     <div class="select-item-time-setting">
                         <div class="select-item-time-text">
                             <div class="date">{{timer.created_at}}</div>
+                        </div>
+                        <div class="select-item-active-setting">
+                            <form method="POST" action="/select">
+                                {% csrf_token %}
+                                {% if timer.is_active == 'true' %}
+                                    <i class="fas fa-check-circle"></i>
+                                {% else %}
+                                    <i class="fas fa-times-circle"></i>
+                                {% endif %}
+                                <input 
+                                    class="timer_id" 
+                                    type="hidden" 
+                                    name="timer_id" 
+                                    value="{{timer | private:'_id'}}">
+                                <input class="settings-save" type="submit" style="background-color: #333; 
+                                                                                color:#fff; 
+                                                                                font-size:1em;
+                                                                                margin:5px;
+                                                                                padding:4px 8px;
+                                                                                border-radius:3px;" name="select" value="선택">
+                            </form>
                         </div>
                     </div>
                 </li>

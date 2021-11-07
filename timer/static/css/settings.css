@@ -99,6 +99,10 @@ body {
     color: white;
 }
 
+.select-list .select-item .select-item-time-setting .select-item-active-setting {
+    color: #696969;
+}
+
 .select-list .select-item .select-item-time-setting .select-item-time-text {
     margin-right: 1rem;
 }
