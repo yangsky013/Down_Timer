@@ -10,22 +10,21 @@
     <link rel="stylesheet" href="../../static/css/timer.css" />
     <script src="https://kit.fontawesome.com/a6b071bea7.js" crossorigin="anonymous"></script>
   <body>
-    <section id="main_timer">
-      <div class="wrapper">
-        <div style=" text-align: right">
-          <button >
-            <a href="/cycles"><i class="far fa-clock"></i></a>
-          </button>
 
-          <button onclick="clickRefreshButton()">
-            <i class="fas fa-sync"></i>
-          </button>
-        </div>
+      <div class="wrapper">
         <div class="title">
-          <h1>총시간</h1>
+          <h1>{{def_time.timer_name}}</h1>
           <h2 id="totalTime">{{def_time.total_min}}:{{def_time.total_sec}}</h2>
         </div>
-        <div class="timer">
+
+          <div class="upper_btn">
+            <button class="timer_btn">
+              <a href="/cycles"><i class="far fa-clock"></i></a>
+            </button>
+            <button  onclick="clickRefreshButton()" class="refresh_btn">
+              <i class="fas fa-sync"></i>
+            </button>
+          </div>
           <div class="active">
             <div id="timer_head">준비</div>
             <h1 id="timer">{{def_time.ready_min}}:{{def_time.ready_sec}}</h1>
@@ -34,22 +33,28 @@
             <div id="timer_head_next">운동</div>
             <h1 id="timer_next">{{def_time.exercise_min}}:{{def_time.exercise_sec}}</h1>
           </div>
-        </div>
+
         <div class="bottom_btn">
           <div class="round">
             <div id="round_cnt">{{def_time.round_count}}</div>
-            <div>round</div>
+            <div>남은 라운드</div>
           </div>
-          <div class="buttons">
-            <button id="start_btn" onclick="handleTimerButton()">시작</button>
+          <div class="start_btn">
+            <button id="start_btn" onclick="handleTimerButton()" >
+              <i class="fas fa-play-circle" ></i>
+              <i class="fa-solid fa-circle-stop"></i>
+              </button>
+              <div class="start_btn_text" id="start_btn_text"> 시작</div>
+
           </div>
+
           <div class="cycle">
             <div id="cycle_cnt">{{def_time.cycle_count}}</div>
-            <div>cycle</div>
+            <div>남은 사이클</div>
           </div>
         </div>
       </div>
-    </section>
+
   </body>
   <script>
 
@@ -63,8 +68,7 @@
     var exerciseTime = parseInt("{{def_time.exercise_min}}")*60 + parseInt("{{def_time.exercise_sec}}")
     var breakTime =  parseInt("{{def_time.rest_min}}")*60 + parseInt("{{def_time.rest_sec}}")
     var cycleBreakTime =parseInt("{{def_time.between_cycle_min}}")*60 + parseInt("{{def_time.between_cycle_sec}}")
-
-
+    var timer_name = "{{def_time.timer_name}}"
 
 
 

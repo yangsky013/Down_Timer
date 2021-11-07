@@ -1,4 +1,4 @@
-const start_btn = document.getElementById("start_btn");
+const start_btn = document.getElementById("start_btn_text");
 const timer_head = document.getElementById("timer_head");
 const timer = document.getElementById("timer");
 const totalTimer_head = document.getElementById("totalTime");
