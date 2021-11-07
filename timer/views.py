@@ -260,7 +260,6 @@ def select(request):
     db = client['down-timer']
     timer = db['timer']
 
-    print(timer.find_one({'_id': ObjectId(timer_id)}))
     timer.update_many({}, {"$set": {'is_active': "false"}})
     timer.update_one({'_id': ObjectId(timer_id)}, { "$set" : {'is_active': "true"}})
     return redirect('/')
