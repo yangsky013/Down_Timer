@@ -87,9 +87,11 @@ function handleTimerButton() {
   if (!startMode) {
     startTimer();
     start_btn.innerText = "정지";
+    document.getElementById("start_icon").className = "fas" + " " + "fa-pause-circle";
   } else {
     stopTimer();
     start_btn.innerText = "시작";
+    document.getElementById("start_icon").className = "fas" + " " + "fa-play-circle";
   }
 }
 
@@ -322,6 +324,7 @@ function initTimer() {
   cycle_cnt.innerHTML = cycle;
 
   isReady = true;
+  document.getElementById("start_icon").className = "fas" + " " + "fa-play-circle";
 }
 
 //초기화 버튼을 클릭한다.
